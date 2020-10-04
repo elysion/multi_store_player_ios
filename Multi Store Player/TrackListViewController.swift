@@ -181,8 +181,9 @@ class TrackListViewController: UITableViewController {
                 }
                 
                 self.setLoginButtonText(text: "Logout")
-                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                self.tracks = responseJSON!["tracks"] as! [Any]
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: []) as! Dictionary<String, Any>
+                let tracks = responseJSON!["tracks"] as! Dictionary<String, Any>
+                self.tracks = tracks["new"] as! [Any]
                 for case let dict as Dictionary<String, Any> in self.tracks {
                     self.trackTitles.append(dict["title"] as! String)
                 }
