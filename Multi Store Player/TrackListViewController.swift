@@ -73,7 +73,11 @@ class TrackListViewController: UITableViewController {
         let track = getTrack(index: indexPath.row) as NSDictionary
         cell.artistsLabel.text = getTrackArtists(track: track)
         cell.titleLabel.text = getTrackTitle(track: track)
-        cell.labelLabel.text = track.value(forKeyPath: "label.name") as? String
+        let labels = track.value(forKeyPath: "labels") as! [Dictionary<String, Any>]
+        let labelNames = labels.map { (label) -> String in
+            return label["name"] as! String
+        }.joined(separator: ", ")
+        cell.labelLabel.text = labelNames
         cell.newLabel.text = track["heard"] as? String == nil ? "•" : ""
         cell.addToCartButton.isEnabled = true
         cell.trackIndex = indexPath.row
