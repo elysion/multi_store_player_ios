@@ -79,7 +79,7 @@ class TrackListViewController: UITableViewController {
         }.joined(separator: ", ")
         cell.labelLabel.text = labelNames
         cell.newLabel.text = track["heard"] as? String == nil ? "•" : ""
-        cell.addToCartButton.isEnabled = true
+        cell.openButton.isEnabled = true
         cell.trackIndex = indexPath.row
         
         return cell
@@ -268,33 +268,34 @@ class TrackListViewController: UITableViewController {
         }
     }
     
-    @IBAction func onAddToCartClicked(_ sender: Any) {
-        addTrackToCart(trackIndex: currentTrackIndex)
+    @IBAction func onOpenClicked(_ sender: Any) {
+        openTrack(trackIndex: currentTrackIndex)
     }
     
-    @IBAction func trackCellAddToCartClicked(_ sender: UIButton) {
+    @IBAction func trackCellOpenClicked(_ sender: UIButton) {
         let cell = sender.superview?.superview as! TrackListViewCell
         let trackIndex = cell.trackIndex
         DispatchQueue.main.async {
-            cell.addToCartButton?.isEnabled = false
-            cell.addToCartButton.setTitle("Added", for: UIControl.State.disabled)
+            cell.openButton?.isEnabled = false
+            cell.openButton.setTitle("Added", for: UIControl.State.disabled)
         }
         
-        addTrackToCart(trackIndex: trackIndex)
+        openTrack(trackIndex: trackIndex)
     }
     
-    private func addTrackToCart(trackIndex: Int) {
+    private func openTrack(trackIndex: Int) {
         let track = self.getTrack(index: trackIndex)
         let stores = track["stores"] as! [Dictionary<String, Any>]
         let beatportDetails = stores.first { (dict: Dictionary<String, Any>) -> Bool in
             return dict["code"] as! String == "beatport"
         }
-        let trackId = beatportDetails!["trackId"] as! String
-        let body = RequestHelpers.toJSON(data: ["trackId": trackId])
         
-        RequestHelpers.postJson(url: "https://elysioncc.ddns.net/player/api/store/beatport/carts/cart", body: body!, completionHandler: { data, response, error in
-            print("Added")
-        })
+        let trackId = beatportDetails!["trackId"] as! String
+        let template = "https://beatport.com/track/foo/%@"
+        let trackUrl = String(format: template, trackId)
+        if let url = URL(string: trackUrl) {
+            UIApplication.shared.open(url)
+        }
     }
     
     private func getTrack(index: Int) -> Dictionary<String, Any> {
