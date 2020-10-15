@@ -201,15 +201,7 @@ class TrackListViewController: UITableViewController {
         currentTrackIndex = trackIndex
         
         let dict = self.tracks[trackIndex] as! NSDictionary
-        let previews = dict["previews"] as! [Dictionary<String, Any>]
-        let mp3Preview = previews.first(where: { $0["format"] as! String == "mp3"
-        })
-        let previewUrl = mp3Preview!["url"] as! String
-        player = makePlayer(url: previewUrl)
-        if isPlaying {
-            player.play()
-        }
-        setupNowPlaying(artists: getTrackArtists(track: dict), title: getTrackTitle(track: dict))
+        
         let indexPath = IndexPath(row: currentTrackIndex, section: 0)
         self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.none)
         
@@ -217,6 +209,15 @@ class TrackListViewController: UITableViewController {
         cell?.newLabel.text = ""
         
         let trackId = dict["id"] as! Int
+        
+        let previewUrl = String(format: "https://elysioncc.ddns.net/player/api/tracks/%d/preview.mp3", trackId)
+        player = makePlayer(url: previewUrl)
+        if isPlaying {
+            player.play()
+        }
+
+        setupNowPlaying(artists: getTrackArtists(track: dict), title: getTrackTitle(track: dict))
+        
         let body = RequestHelpers.toJSON(data: ["heard": true])!
         RequestHelpers.postJson(url: String(format: "https://elysioncc.ddns.net/player/api/tracks/%d", trackId), body: body, completionHandler: {
             data, response, error in
