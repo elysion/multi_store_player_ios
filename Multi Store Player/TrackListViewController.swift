@@ -79,7 +79,6 @@ class TrackListViewController: UITableViewController {
     @IBOutlet weak var rewindButton: UIBarButtonItem!
     @IBOutlet weak var playPauseButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    @IBOutlet weak var addToCartButton: UIBarButtonItem!
     @IBOutlet weak var oauthLoginButton: UIBarButtonItem!
     
     override func numberOfSections(in tableView: UITableView) -> Int {
