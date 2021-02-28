@@ -213,14 +213,12 @@ class TrackListViewController: UITableViewController {
                 DispatchQueue.main.async {
                     guard let data = data, error == nil else {
                         print(error?.localizedDescription ?? "No data")
-                        self.setOAuthLoginButtonText(text: "Login")
                         return
                     }
                     
                     let httpResponse = response as! HTTPURLResponse
                     if httpResponse.statusCode != 200 {
                         print("Returned http status \(httpResponse.statusCode)")
-                        self.setOAuthLoginButtonText(text: "Login")
                         return
                     }
                     
