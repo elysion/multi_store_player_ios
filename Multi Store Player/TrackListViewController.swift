@@ -25,8 +25,6 @@ let kClientID: String? = "233278881156-n731inm71nkqpu7rqqake7ksafr2t4mo.apps.goo
  */
 let kRedirectURI: String = "com.googleusercontent.apps.233278881156-n731inm71nkqpu7rqqake7ksafr2t4mo:/oauth2redirect/google";
 
-let appRoot: String = "http://10.0.1.28:4003"
-
 /**
  NSCoding key for the authState property.
  */
@@ -39,6 +37,7 @@ class TrackListViewController: UITableViewController {
     var isPlaying = false
     var player = AVPlayer()
     var currentTrackIndex = 0
+    var appRoot = UserDefaults.standard.string(forKey: SettingsBundleHelper.SettingsBundleKeys.BackendUrlKey)
     
     private var authState: OIDAuthState?
     
@@ -65,6 +64,20 @@ class TrackListViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         
         setupRemoteTransportControls()
+        
+        registerSettingsBundle()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TrackListViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    
+    @objc func defaultsChanged() {
+        appRoot = UserDefaults.standard.string(forKey: SettingsBundleHelper.SettingsBundleKeys.BackendUrlKey)
+        self.getTracks()
     }
     
     /*
@@ -80,6 +93,7 @@ class TrackListViewController: UITableViewController {
     @IBOutlet weak var playPauseButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var oauthLoginButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -304,6 +318,18 @@ class TrackListViewController: UITableViewController {
         togglePlaying()
     }
     
+    @IBAction func onOpenSettings(_ sender: UIButton) {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)") // Prints true
+            })
+        }
+    }
+    
     @IBAction func onOAuthLogin(_ sender: UIButton) {
         guard let issuer = URL(string: kIssuer) else {
             print("Error creating URL for : \(kIssuer)")
@@ -400,6 +426,8 @@ class TrackListViewController: UITableViewController {
                 self.setAuthState(authState)
                 let idToken = authState.lastTokenResponse!.idToken!
                 print("Got authorization tokens. ID token: \(idToken)")
+                
+                self.getTracks()
                 
                 /*
                  var request = URLRequest(url: URL(string: "\(appRoot)/api/auth/login")!)

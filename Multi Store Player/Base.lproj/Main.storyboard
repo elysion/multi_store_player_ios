@@ -102,6 +102,11 @@
                                 <action selector="onOAuthLogin:" destination="6zi-j2-tRg" id="aux-lV-2Q5"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="SiA-eu-IXE">
+                            <connections>
+                                <action selector="onOpenSettings:" destination="6zi-j2-tRg" id="HH2-EN-4OX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -109,6 +114,7 @@
                         <outlet property="oauthLoginButton" destination="1nm-zG-Lnb" id="67L-EI-5tE"/>
                         <outlet property="playPauseButton" destination="OSe-oj-Qhf" id="4Ke-Td-cHY"/>
                         <outlet property="rewindButton" destination="miM-1i-68J" id="np7-Tz-xDa"/>
+                        <outlet property="settingsButton" destination="SiA-eu-IXE" id="teo-Tu-6fc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFy-k5-ZFl" userLabel="First Responder" sceneMemberID="firstResponder"/>

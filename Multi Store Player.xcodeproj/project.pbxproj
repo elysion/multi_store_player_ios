@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E4E764E25EC125900D956F3 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E4E764D25EC125900D956F3 /* Settings.bundle */; };
+		5E4E765325EC135900D956F3 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E765225EC135900D956F3 /* SettingsBundleHelper.swift */; };
 		5EAD701925509A880034A384 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAD701825509A880034A384 /* AppAuth */; };
 		5EAD701B25509A880034A384 /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAD701A25509A880034A384 /* AppAuthCore */; };
 		5EE95D6521DE291500F8C38A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D6421DE291500F8C38A /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E4E764D25EC125900D956F3 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		5E4E765225EC135900D956F3 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		5EE95D6121DE291500F8C38A /* Multi Store Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi Store Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE95D6421DE291500F8C38A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EE95D6921DE291500F8C38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				5EE95D9221DE865700F8C38A /* TrackListViewController.swift */,
 				5EE95D9621DE87A700F8C38A /* RequestHelper.swift */,
 				5EE95D9821E0ACCC00F8C38A /* TrackListViewCell.swift */,
+				5E4E764D25EC125900D956F3 /* Settings.bundle */,
+				5E4E765225EC135900D956F3 /* SettingsBundleHelper.swift */,
 			);
 			path = "Multi Store Player";
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E4E764E25EC125900D956F3 /* Settings.bundle in Resources */,
 				5EE95D6F21DE291500F8C38A /* LaunchScreen.storyboard in Resources */,
 				5EE95D6C21DE291500F8C38A /* Assets.xcassets in Resources */,
 				5EE95D6A21DE291500F8C38A /* Main.storyboard in Resources */,
@@ -281,6 +288,7 @@
 				5EE95D9921E0ACCC00F8C38A /* TrackListViewCell.swift in Sources */,
 				5EE95D9721DE87A700F8C38A /* RequestHelper.swift in Sources */,
 				5EE95D6521DE291500F8C38A /* AppDelegate.swift in Sources */,
+				5E4E765325EC135900D956F3 /* SettingsBundleHelper.swift in Sources */,
 				5EE95D9321DE865700F8C38A /* TrackListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
