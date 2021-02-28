@@ -1,22 +1,25 @@
-//
-//  AppDelegate.swift
-//  Multi Store Player
-//
-//  Created by Miko Kiiski on 03/01/2019.
-//  Copyright © 2019 Miko Kiiski. All rights reserved.
-//
-
+import AppAuth
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var currentAuthorizationFlow: OIDExternalUserAgentSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+
+        if let authorizationFlow = self.currentAuthorizationFlow, authorizationFlow.resumeExternalUserAgentFlow(with: url) {
+            self.currentAuthorizationFlow = nil
+            return true
+        }
+
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

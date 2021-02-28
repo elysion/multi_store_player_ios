@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qHF-Ws-deS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qHF-Ws-deS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,14 +103,9 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="lAD-fN-cXt">
-                        <barButtonItem key="leftBarButtonItem" title="Login" id="Ifo-O0-RAv">
+                        <barButtonItem key="leftBarButtonItem" title="OAuth Login" id="1nm-zG-Lnb">
                             <connections>
-                                <segue destination="Kqh-MN-ZDg" kind="show" id="NbZ-Kv-bZC"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Beatport Login" id="mbQ-hz-a8Q">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="5c8-Rx-hmf"/>
+                                <action selector="onOAuthLogin:" destination="6zi-j2-tRg" id="aux-lV-2Q5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,7 +113,7 @@
                     <connections>
                         <outlet property="addToCartButton" destination="bIa-NA-1YN" id="dWY-lY-dBK"/>
                         <outlet property="forwardButton" destination="waF-FS-bZZ" id="6kj-Fb-VS3"/>
-                        <outlet property="loginButton" destination="Ifo-O0-RAv" id="tE9-5x-rCV"/>
+                        <outlet property="oauthLoginButton" destination="1nm-zG-Lnb" id="67L-EI-5tE"/>
                         <outlet property="playPauseButton" destination="OSe-oj-Qhf" id="4Ke-Td-cHY"/>
                         <outlet property="rewindButton" destination="miM-1i-68J" id="np7-Tz-xDa"/>
                     </connections>

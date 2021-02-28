@@ -1,11 +1,3 @@
-//
-//  TrackListViewCell.swift
-//  Multi Store Player
-//
-//  Created by Miko Kiiski on 05/01/2019.
-//  Copyright © 2019 Miko Kiiski. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EAD701925509A880034A384 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAD701825509A880034A384 /* AppAuth */; };
+		5EAD701B25509A880034A384 /* AppAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAD701A25509A880034A384 /* AppAuthCore */; };
 		5EE95D6521DE291500F8C38A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D6421DE291500F8C38A /* AppDelegate.swift */; };
-		5EE95D6721DE291500F8C38A /* BeatportLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D6621DE291500F8C38A /* BeatportLoginViewController.swift */; };
 		5EE95D6A21DE291500F8C38A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE95D6821DE291500F8C38A /* Main.storyboard */; };
 		5EE95D6C21DE291500F8C38A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EE95D6B21DE291500F8C38A /* Assets.xcassets */; };
 		5EE95D6F21DE291500F8C38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE95D6D21DE291500F8C38A /* LaunchScreen.storyboard */; };
 		5EE95D7A21DE291600F8C38A /* Multi_Store_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D7921DE291600F8C38A /* Multi_Store_PlayerTests.swift */; };
 		5EE95D8521DE291600F8C38A /* Multi_Store_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D8421DE291600F8C38A /* Multi_Store_PlayerUITests.swift */; };
 		5EE95D9321DE865700F8C38A /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D9221DE865700F8C38A /* TrackListViewController.swift */; };
-		5EE95D9521DE879000F8C38A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D9421DE879000F8C38A /* LoginViewController.swift */; };
 		5EE95D9721DE87A700F8C38A /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D9621DE87A700F8C38A /* RequestHelper.swift */; };
 		5EE95D9921E0ACCC00F8C38A /* TrackListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE95D9821E0ACCC00F8C38A /* TrackListViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,6 @@
 /* Begin PBXFileReference section */
 		5EE95D6121DE291500F8C38A /* Multi Store Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multi Store Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE95D6421DE291500F8C38A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5EE95D6621DE291500F8C38A /* BeatportLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeatportLoginViewController.swift; sourceTree = "<group>"; };
 		5EE95D6921DE291500F8C38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EE95D6B21DE291500F8C38A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EE95D6E21DE291500F8C38A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +51,6 @@
 		5EE95D8421DE291600F8C38A /* Multi_Store_PlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multi_Store_PlayerUITests.swift; sourceTree = "<group>"; };
 		5EE95D8621DE291600F8C38A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE95D9221DE865700F8C38A /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
-		5EE95D9421DE879000F8C38A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5EE95D9621DE87A700F8C38A /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		5EE95D9821E0ACCC00F8C38A /* TrackListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EAD701925509A880034A384 /* AppAuth in Frameworks */,
+				5EAD701B25509A880034A384 /* AppAuthCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,13 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				5EE95D6421DE291500F8C38A /* AppDelegate.swift */,
-				5EE95D6621DE291500F8C38A /* BeatportLoginViewController.swift */,
 				5EE95D6821DE291500F8C38A /* Main.storyboard */,
 				5EE95D6B21DE291500F8C38A /* Assets.xcassets */,
 				5EE95D6D21DE291500F8C38A /* LaunchScreen.storyboard */,
 				5EE95D7021DE291500F8C38A /* Info.plist */,
 				5EE95D9221DE865700F8C38A /* TrackListViewController.swift */,
-				5EE95D9421DE879000F8C38A /* LoginViewController.swift */,
 				5EE95D9621DE87A700F8C38A /* RequestHelper.swift */,
 				5EE95D9821E0ACCC00F8C38A /* TrackListViewCell.swift */,
 			);
@@ -153,6 +151,10 @@
 			dependencies = (
 			);
 			name = "Multi Store Player";
+			packageProductDependencies = (
+				5EAD701825509A880034A384 /* AppAuth */,
+				5EAD701A25509A880034A384 /* AppAuthCore */,
+			);
 			productName = "Multi Store Player";
 			productReference = 5EE95D6121DE291500F8C38A /* Multi Store Player.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +232,9 @@
 				Base,
 			);
 			mainGroup = 5EE95D5821DE291500F8C38A;
+			packageReferences = (
+				5EAD701725509A880034A384 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
+			);
 			productRefGroup = 5EE95D6221DE291500F8C38A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,8 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE95D9921E0ACCC00F8C38A /* TrackListViewCell.swift in Sources */,
-				5EE95D9521DE879000F8C38A /* LoginViewController.swift in Sources */,
-				5EE95D6721DE291500F8C38A /* BeatportLoginViewController.swift in Sources */,
 				5EE95D9721DE87A700F8C38A /* RequestHelper.swift in Sources */,
 				5EE95D6521DE291500F8C38A /* AppDelegate.swift in Sources */,
 				5EE95D9321DE865700F8C38A /* TrackListViewController.swift in Sources */,
@@ -603,6 +606,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EAD701725509A880034A384 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openid/AppAuth-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EAD701825509A880034A384 /* AppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EAD701725509A880034A384 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuth;
+		};
+		5EAD701A25509A880034A384 /* AppAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EAD701725509A880034A384 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuthCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5EE95D5921DE291500F8C38A /* Project object */;
 }
