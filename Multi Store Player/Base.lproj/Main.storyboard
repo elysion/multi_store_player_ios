@@ -97,7 +97,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="lAD-fN-cXt">
-                        <barButtonItem key="leftBarButtonItem" title="OAuth Login" id="1nm-zG-Lnb">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="1nm-zG-Lnb">
                             <connections>
                                 <action selector="onOAuthLogin:" destination="6zi-j2-tRg" id="aux-lV-2Q5"/>
                             </connections>
